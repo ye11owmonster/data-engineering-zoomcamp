@@ -29,7 +29,7 @@ def main(params):
     os.system(f"wget {url} -O {csv_name}")
 
     engine = create_engine(f'postgresql://{user}:{password}@{host}:{port}/{db}')
-
+    #path = 'c:/Users/ChaoticDots/Documents/de_zoomcamp/data-engineering-zoomcamp/data/yellow_tripdata_2021-01.csv.gz'
     df_iter = pd.read_csv(csv_name, iterator=True, chunksize=100000)
 
     df = next(df_iter)
